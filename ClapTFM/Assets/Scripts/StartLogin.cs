@@ -15,7 +15,7 @@ public class StartLogin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        //overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class StartLogin : MonoBehaviour
     {
         string name = text.text;
         //GameManager.instance.nameUser = name;
-        SaveJson.instance.SaveNamesToJson(name, "/participants.json");
+        SaveJson.instance.SetData(name, "/participants.json");
         Timer.instance.timerIsRunning = true;
        // overlayKeyboard = null;
         //cameraRig.GetComponent<OVRManager>().

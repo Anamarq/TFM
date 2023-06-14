@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour
 {
     public static Timer instance;
    // public UIManager[] canvas;
-    private float totalTime = 30;
+    private float totalTime = 10;
     public float timeRemaining;
     public bool timerIsRunning = false;
     private int nlev;
@@ -18,9 +18,9 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         nlev = 0;
-        timeRemaining = totalTime;
+        timeRemaining = totalTime; 
         ChangeCanvas.instance.changeTimeRelative(timeRemaining.ToString("0"), nlev, 1);
-      
+        timeRemaining += SceneData.instance.extraTime;
         timerIsRunning = false;
     }
     void Update()

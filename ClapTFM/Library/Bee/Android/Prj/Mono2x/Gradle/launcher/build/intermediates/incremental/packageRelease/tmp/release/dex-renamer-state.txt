@@ -1,4 +1,4 @@
-#Tue May 30 14:04:23 CEST 2023
-base.0=C\:\\anamarq\\TFM\\ClapTFM\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+#Wed Jun 14 12:35:02 CEST 2023
+base.0=C\:\\anamarq\\TFM\\ClapTFM\\ClapTFM\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -88,40 +88,52 @@ public class SaveJson : MonoBehaviour
     //    // Escribir la cadena JSON actualizada en el archivo
     //    File.WriteAllText(filePath, json);
     //}
-    public void SaveNamesToJson(string name, string path)
+
+    public void SetData(string name, string path)
     {
         int total = 0;
         string filePath = Application.persistentDataPath + path;
 
-        // Si el archivo ya existe, leemos su contenido y lo deserializamos
+        //// Si el archivo ya existe, leemos su contenido y lo deserializamos
         NameData data = new NameData();
         if (File.Exists(filePath))
         {
             string jsonContent = File.ReadAllText(filePath);
             data = JsonUtility.FromJson<NameData>(jsonContent);
+
+            for (int i = 0; i < data.ListData.Count; i++)
+            {
+                if (data.ListData[i] == name)
+                {
+                    total = (int.Parse(data.Total[i]) + 1);
+                }
+            }
+        }
+        SceneData.instance.setData(name, total);
+    }
+    public void SaveNamesToJson(string name, int total, string path)
+    {
+        string filePath = Application.persistentDataPath + path;
+
+        //// Si el archivo ya existe, leemos su contenido y lo deserializamos
+        NameData data = new NameData();
+        if (File.Exists(filePath))
+        {
+            string jsonContent = File.ReadAllText(filePath);
+            data = JsonUtility.FromJson<NameData>(jsonContent);
+            for (int i = 0; i < data.ListData.Count; i++)
+            {
+                if (data.ListData[i] == name)
+                {  
+                    data.Total[i] = total.ToString("0");
+                }
+            }
         }
         else
         {
             data.ListData = new List<string>();
             data.Total = new List<string>();
         }
-        for (int i = 0; i < data.ListData.Count; i++)
-        {
-            //Si existe ekl nombre..
-            //if (data.ListData[i] == name)
-            //    total++;
-            if (data.ListData[i] == name)
-            {
-                total = (int.Parse(data.Total[i]) + 1);
-                data.Total[i] = total.ToString("0");
-            }
-        }
-        GameManager.instance.nameUser = name;
-        GameManager.instance.totalTries = total.ToString("0");
-        if (total == 0)
-            Timer.instance.timeRemaining += 15;
-        else
-            Timer.instance.timeRemaining += 5;
         // Agregar nuevos datos al JSON existente
         if (total == 0)
         {
@@ -135,9 +147,44 @@ public class SaveJson : MonoBehaviour
         // Escribir la cadena JSON actualizada en el archivo
         File.WriteAllText(filePath, json);
     }
-    //public void LoadFromJson()
+    //public void SaveNamesToJson(string name, int total, string path)
     //{
-    //    string json = File.ReadAllText(Application.dataPath + "/TryDataFile.json");
-    //    TryData data = JsonUtility.FromJson<TryData>(json);
+    //    int total = 0;
+    //    string filePath = Application.persistentDataPath + path;
+
+    //    //// Si el archivo ya existe, leemos su contenido y lo deserializamos
+    //    NameData data = new NameData();
+    //    if (File.Exists(filePath))
+    //    {
+    //        string jsonContent = File.ReadAllText(filePath);
+    //        data = JsonUtility.FromJson<NameData>(jsonContent);
+
+    //        for (int i = 0; i < data.ListData.Count; i++)
+    //        {
+    //            if (data.ListData[i] == name)
+    //            {
+    //                total = (int.Parse(data.Total[i]) + 1);
+    //                data.Total[i] = total.ToString("0");
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        data.ListData = new List<string>();
+    //        data.Total = new List<string>();
+    //    }
+    //    SceneData.instance.setData(name, total);
+    //    // Agregar nuevos datos al JSON existente
+    //    if (total == 0)
+    //    {
+    //        data.ListData.Add(name);
+    //        data.Total.Add("0");
+    //    }
+
+    //    // Convertir el JSON actualizado a una cadena JSON
+    //    string json = JsonUtility.ToJson(data, true);
+
+    //    // Escribir la cadena JSON actualizada en el archivo
+    //    File.WriteAllText(filePath, json);
     //}
 }

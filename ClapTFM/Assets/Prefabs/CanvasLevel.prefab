@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7714362812811634413}
   - component: {fileID: 7714362812811634415}
   - component: {fileID: 7714362812811634412}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NumActions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7714362812911023605}
   - component: {fileID: 7714362812911023607}
   - component: {fileID: 7714362812911023604}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 7714362813190097379}
   - component: {fileID: 7714362813190097376}
   - component: {fileID: 7714362813190097377}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: CanvasLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ RectTransform:
   m_GameObject: {fileID: 7714362813190097383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.708}
-  m_LocalScale: {x: 0.0057124007, y: 0.0057124, z: 2.8562}
+  m_LocalScale: {x: 0.0057124007, y: 0.0057124007, z: 2.8562}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7714362812811634413}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 7714362813345324574}
   - component: {fileID: 7714362813345324568}
   - component: {fileID: 7714362813345324569}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 7714362813686237691}
   - component: {fileID: 7714362813686237685}
   - component: {fileID: 7714362813686237690}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ public class CapController : MonoBehaviour
         if(other.tag.Equals("trash"))
         {
             ++CapPoints.instance.pointsSet;
-            if(CapPoints.instance.pointsSet >= 4)
+            if(CapPoints.instance.pointsSet >= 3)
             {
                 CapPoints.instance.pointsSet = 0;
                 CapPoints.instance.NewCaps();

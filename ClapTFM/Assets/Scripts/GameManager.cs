@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int nlev;
     public string nameUser;
     public string totalTries;
+    public GameObject diagrams;
     private void Awake()
     {
         instance = this;
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour
         {
             levels[i].SetActive(false);
         }
+        nameUser = SceneData.instance.nameUser;
+        totalTries = SceneData.instance.totalTries.ToString("0");
+       // Timer.instance.timeRemaining += SceneData.instance.extraTime;
     }
 
     // Update is called once per frame
@@ -52,7 +56,7 @@ public class GameManager : MonoBehaviour
         //levels[nlev].SetActive(false);
         string path = "/" + nameUser + totalTries + ".json";
         if (nlev == 0)
-            SaveJson.instance.SaveToJson(ChangeGlass.instance.pointGlass.ToString(), path); //falta el número de test
+            SaveJson.instance.SaveToJson(ChangeGlass.instance.pointGlass.ToString(), path);
         else if (nlev == 1)
             SaveJson.instance.SaveToJson( ChangeWok.instance.points.ToString(), path);
         else if (nlev == 2)
@@ -63,9 +67,9 @@ public class GameManager : MonoBehaviour
             SaveJson.instance.SaveToJson(ChangeBasket.instance.nbasket.ToString(), path);
         else if (nlev == 5)
             SaveJson.instance.SaveToJson(ColorsShelfPoints.instance.points.ToString(), path);
-        else if (nlev == 7)
+        else if (nlev == 6)
             SaveJson.instance.SaveToJson(FaucetController.instance.nfaucet.ToString(), path);
-        else if (nlev == 8)
+        else if (nlev == 7)
             SaveJson.instance.SaveToJson(OvenController.instance.nOven.ToString(), path);
         ++nlev;
         if (nlev < levels.Length)
@@ -76,7 +80,12 @@ public class GameManager : MonoBehaviour
             Timer.instance.Restart();
         }
         else
-            Application.Quit();
+        {
+            SaveJson.instance.SaveNamesToJson(nameUser, SceneData.instance.totalTries, "/participants.json");
+            diagrams.SetActive(true);
+            DiagramController.instance.LoadDiagrams();
+           // Application.Quit();
+        }
        // FadeOut.instance.StartActivate();
 
     }
